@@ -1,8 +1,14 @@
 const parent = document.getElementById("first")
 
 async function github(){
+    
     try{
+        
         const response = await fetch("https://api.github.com/users")
+
+         if(!response.ok){
+         throw new Error("Data is not persent");
+        }
         const data = await response.json()
 
         for(let user of data){
